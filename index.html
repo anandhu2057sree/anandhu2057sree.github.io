@@ -6,14 +6,14 @@
 <title>Anandhu Anil – Cyber Security Portfolio</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Press+Start+2P&display=swap">
 <style>
-:root{--bg:#080b08;--card:#101610;--deep:#050805;--teal:#4dff78;--ink:#e6f5df;--muted:#9bab93;--line:#263326;
+:root{--bg:#080d18;--card:#0d1423;--deep:#060a12;--teal:#8b5cf6;--ink:#e4e9f5;--muted:#9aa9bf;--line:#26334b;
   color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
 *,*::before,*::after{box-sizing:inherit}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Poppins",system-ui,Arial,sans-serif;font-size:1rem;line-height:1.7}
 a{color:var(--teal)}
 a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:6px}
-.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+.wrap{width:100%;max-width:1540px;margin:0 auto;padding:0 clamp(24px,5vw,84px)}
 .ic{fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .t{color:var(--teal)}
 
@@ -44,8 +44,22 @@ p{margin:0 0 1em;max-width:56ch;color:#d3d8df}
 .down a{display:grid;place-items:center;width:46px;height:46px;border-radius:8px;background:var(--card);color:var(--ink)}
 .down a:hover{background:var(--teal);color:#080b08}
 
-#home .split,#about .split{grid-template-columns:minmax(0,1fr)}
-#home .split>div{max-width:720px}
+#home .split,#about .split{width:100%;grid-template-columns:minmax(0,1fr) minmax(360px,.92fr);gap:clamp(32px,4vw,72px)}
+#home .split>div,#about .split>div{min-width:0}
+#home .side-panel,#about .side-panel{display:block;width:100%;max-width:none;align-self:center}
+#home .side-panel{min-height:500px}
+#about .side-panel{min-height:430px}
+@media(min-width:1500px){#home .side-panel{transform:translateY(4px)} #home .split{gap:clamp(56px,5vw,90px)}}
+#home .split>div,#about .split>div{max-width:none}
+@media(max-width:819px){.wrap{padding-inline:20px}#home .split,#about .split{grid-template-columns:minmax(0,1fr);gap:30px}#home .side-panel,#about .side-panel{min-height:0;max-width:600px;margin-inline:auto;width:100%}}
+.side-panel{position:relative;min-width:0;border:1px solid rgba(139,92,246,.48);background:linear-gradient(145deg,rgba(16,24,43,.92),rgba(5,9,17,.96));box-shadow:0 0 32px rgba(59,130,246,.08),inset 0 0 24px rgba(139,92,246,.035);font-family:"JetBrains Mono",monospace;overflow:hidden}
+.side-panel:before,.side-panel:after{content:"";position:absolute;width:18px;height:18px;border-color:#8b5cf6;border-style:solid;pointer-events:none;z-index:2}
+.side-panel:before{top:9px;left:9px;border-width:2px 0 0 2px}.side-panel:after{bottom:9px;right:9px;border-width:0 2px 2px 0}
+.panel-head{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:12px 18px;border-bottom:1px solid rgba(139,92,246,.3);color:#b7a0ff;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;background:rgba(139,92,246,.055)}
+.panel-live{display:inline-flex;align-items:center;gap:7px;color:#9fb5d2}.panel-live:before{content:"";width:7px;height:7px;background:#8b5cf6;border-radius:50%;box-shadow:0 0 10px #8b5cf6}
+.panel-body{padding:22px}.panel-kicker{color:#8b5cf6;font-size:.72rem;letter-spacing:.12em;margin-bottom:12px}.panel-title{font-size:1rem;color:#e4e9f5;font-weight:600;margin-bottom:18px}.scanline{height:1px;background:linear-gradient(90deg,transparent,#8b5cf6,#60a5fa,transparent);margin:18px 0;opacity:.75}
+.signal-list{display:grid;gap:15px}.signal-row{display:grid;grid-template-columns:100px 1fr 35px;align-items:center;gap:10px;color:#a6b5cb;font-size:.72rem}.signal-track{height:5px;background:#172238;border:1px solid #293652;overflow:hidden}.signal-track i{display:block;height:100%;background:linear-gradient(90deg,#3b82f6,#8b5cf6);box-shadow:0 0 10px rgba(139,92,246,.5)}.signal-row b{font-size:.68rem;color:#c4b5fd;text-align:right;font-weight:500}
+.mini-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.mini-stat{border:1px solid rgba(139,92,246,.28);background:rgba(10,17,31,.72);padding:14px}.mini-stat strong{display:block;font-size:1.2rem;color:#b9a3ff}.mini-stat span{display:block;color:#9aa9bf;font-size:.68rem;line-height:1.5;margin-top:4px}.about-console{margin-top:18px;padding:13px 15px;background:#070b13;border:1px solid rgba(96,165,250,.25);color:#9aa9bf;font-size:.74rem;line-height:1.8}.about-console b{color:#8b5cf6;font-weight:600}
 .doodle{position:absolute;inset:0;width:100%;height:100%;opacity:.16;color:var(--teal);pointer-events:none;-webkit-mask-image:linear-gradient(#000 60%,transparent);mask-image:linear-gradient(#000 60%,transparent)}
 section>.wrap,.above{position:relative}
 
@@ -85,7 +99,7 @@ section>.wrap,.above{position:relative}
 .status{display:inline-flex;align-items:center;gap:10px;margin:0 0 20px;padding:5px 16px;border:1.5px solid var(--teal);border-radius:999px;font-size:.8rem;font-weight:500;color:var(--ink)}
 .status i{width:9px;height:9px;border-radius:50%;background:var(--teal);box-shadow:0 0 10px var(--teal);animation:pulse 1.6s ease-in-out infinite}
 @keyframes pulse{50%{transform:scale(.5);opacity:.5}}
-.term{margin-top:30px;max-width:520px;background:var(--deep);border:1px solid var(--line);border-radius:10px;font-family:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;box-shadow:0 0 30px rgba(77,255,120,.12);overflow:hidden}
+.term{margin-top:30px;max-width:520px;background:var(--deep);border:1px solid var(--line);border-radius:10px;font-family:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;box-shadow:0 0 30px rgba(139,92,246,.12);overflow:hidden}
 .tbar{display:flex;align-items:center;gap:7px;padding:9px 14px;border-bottom:1px solid var(--line);font-size:.74rem;color:var(--muted)}
 .tbar i{width:9px;height:9px;border-radius:50%;background:var(--line)}
 .tbar i:first-child{background:var(--teal)}
@@ -110,6 +124,8 @@ h2::before{content:">";color:var(--teal);font-family:"JetBrains Mono",monospace;
 @media(prefers-reduced-motion:reduce){.status i,.cur::after,.trk{animation:none}}
 .prog{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--teal),#4dff78);box-shadow:0 0 10px var(--teal);z-index:50}
 .rv{opacity:0}
+/* Dashboard panels are static layout content, not reveal targets. Keep them visible. */
+.side-panel.rv{opacity:1;visibility:visible;animation:none;transform:none}
 .rv.in{animation:rise .7s ease var(--d,0ms) both}
 @keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
 .pop{animation:pop .4s ease}
@@ -123,7 +139,7 @@ h2::before{content:">";color:var(--teal);font-family:"JetBrains Mono",monospace;
 .chip{transition:background .2s,color .2s,transform .2s}
 .chip:hover{background:var(--teal);color:#080b08;transform:translateY(-3px)}
 .card{transition:transform .25s,border-color .25s,box-shadow .25s}
-.card:hover{transform:translateY(-6px);border-color:var(--teal);box-shadow:0 14px 34px rgba(77,255,120,.2)}
+.card:hover{transform:translateY(-6px);border-color:var(--teal);box-shadow:0 14px 34px rgba(139,92,246,.2)}
 .rows li{transition:padding-left .25s}
 .rows li:hover{padding-left:10px}
 h1:hover{animation:glitch .5s steps(2)}
@@ -173,7 +189,7 @@ h2::before{content:">_";font-size:.65em}
 .hud-d{bottom:23%;right:4%}
 #fx{z-index:1}
 header.top,main,footer{position:relative;z-index:3}
-.term{border-color:rgba(77,255,120,.45);box-shadow:0 0 0 1px rgba(77,255,120,.12),0 0 28px rgba(77,255,120,.08),inset 0 0 22px rgba(77,255,120,.025)}
+.term{border-color:rgba(77,255,120,.45);box-shadow:0 0 0 1px rgba(139,92,246,.12),0 0 28px rgba(77,255,120,.08),inset 0 0 22px rgba(77,255,120,.025)}
 .tbar{background:rgba(77,255,120,.06)}
 .tbar span{color:var(--teal)}
 .card .tag{letter-spacing:.035em}
@@ -198,7 +214,7 @@ header.top,main,footer{position:relative;z-index:3}
 .card:hover{box-shadow:0 12px 30px rgba(77,255,120,.10)}
 .status,.term{box-shadow:0 0 0 1px rgba(77,255,120,.08),0 0 24px rgba(77,255,120,.06)}
 body::before{background-image:linear-gradient(rgba(77,255,120,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(77,255,120,.06) 1px,transparent 1px)}
-body::after{background:repeating-linear-gradient(to bottom,transparent 0px,transparent 3px,rgba(77,255,120,.12) 4px)}
+body::after{background:repeating-linear-gradient(to bottom,transparent 0px,transparent 3px,rgba(139,92,246,.12) 4px)}
 .hud{background:rgba(5,14,8,.42)}
 
 /* Retro terminal dashboard panels: original blue cyber palette */
@@ -345,6 +361,27 @@ body::after{background:repeating-linear-gradient(to bottom,transparent 0px,trans
             </div>
           </div>
         </div>
+        <aside class="side-panel rv" aria-label="Cybersecurity dashboard">
+          <div class="panel-head"><span>Security overview // 01</span><span class="panel-live">System online</span></div>
+          <div class="panel-body">
+            <div class="panel-kicker">[ FIELD NOTES / ACTIVE LEARNING ]</div>
+            <div class="panel-title">CYBER OPERATIONS DASHBOARD</div>
+            <div class="mini-grid">
+              <div class="mini-stat"><strong>01</strong><span>WEB SECURITY</span></div>
+              <div class="mini-stat"><strong>02</strong><span>NETWORK RECON</span></div>
+              <div class="mini-stat"><strong>03</strong><span>LINUX BASICS</span></div>
+              <div class="mini-stat"><strong>04</strong><span>PYTHON TOOLS</span></div>
+            </div>
+            <div class="scanline"></div>
+            <div class="panel-kicker">LEARNING TRACK // PROGRESS SNAPSHOT</div>
+            <div class="signal-list">
+              <div class="signal-row"><span>Networking</span><div class="signal-track"><i style="width:72%"></i></div><b>72%</b></div>
+              <div class="signal-row"><span>Web testing</span><div class="signal-track"><i style="width:64%"></i></div><b>64%</b></div>
+              <div class="signal-row"><span>Python</span><div class="signal-track"><i style="width:58%"></i></div><b>58%</b></div>
+            </div>
+            <div class="about-console"><b>root@portfolio:~$</b> status<br>Mode: learning + authorised labs<br>Target: security analyst / junior pentester<br><b>_</b></div>
+          </div>
+        </aside>
       </div>
       <div class="down"><a href="#about" aria-label="Scroll to About"><svg class="ic" width="22" height="22" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a></div>
     </div>
@@ -361,6 +398,21 @@ body::after{background:repeating-linear-gradient(to bottom,transparent 0px,trans
           <p>I recently finished my B.Tech in Computer Science and Engineering and chose cyber security as my specialization. I like understanding how systems work so I can see where they can break, and how to fix them.</p>
           <p>I’m completing the Offenso Certified Security Professional (OCSP) program, a five-month course by Offenso Hackers Academy. I’m looking for a security analyst or junior penetration testing role.</p>
         </div>
+        <aside class="side-panel rv" aria-label="About me security profile">
+          <div class="panel-head"><span>Operator profile // 02</span><span class="panel-live">Available</span></div>
+          <div class="panel-body">
+            <div class="panel-kicker">IDENTITY RECORD</div>
+            <div class="panel-title">ANANDHU ANIL <span style="color:#8b5cf6">// SECURITY TRAINEE</span></div>
+            <div class="mini-grid">
+              <div class="mini-stat"><strong>B.Tech</strong><span>COMPUTER SCIENCE</span></div>
+              <div class="mini-stat"><strong>OCSP</strong><span>TRAINING IN PROGRESS</span></div>
+            </div>
+            <div class="scanline"></div>
+            <div class="panel-kicker">CURRENT INTERESTS</div>
+            <div class="chips"><span class="chip">Web security</span><span class="chip">Recon</span><span class="chip">Linux</span><span class="chip">Digital forensics</span></div>
+            <div class="about-console"><b>profile.json</b><br>{ "focus": "hands-on learning",<br>&nbsp; "approach": "understand, test, improve",<br>&nbsp; "goal": "defensive security" }</div>
+          </div>
+        </aside>
       </div>
     </div>
   </section>
