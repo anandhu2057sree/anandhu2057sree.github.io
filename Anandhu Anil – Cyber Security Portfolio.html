@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Anandhu Anil – Cyber Security Portfolio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{--bg:#222831;--card:#2b323d;--deep:#1a1f27;--teal:#14b4c0;--ink:#fff;--muted:#a3acb8;--line:#38404c;
+  color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Poppins",system-ui,Arial,sans-serif;font-size:1rem;line-height:1.7}
+a{color:var(--teal)}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+.ic{fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.t{color:var(--teal)}
+
+header.top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:18px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.logo{font-weight:700;font-size:1.05rem;text-decoration:none;color:var(--ink)}
+.logo span{color:var(--teal)}
+nav{display:flex;gap:22px;flex-wrap:wrap}
+nav a{color:var(--ink);text-decoration:none;font-size:.82rem;font-weight:500;opacity:.8;border-bottom:2px solid transparent}
+nav a:hover,nav a[aria-current="page"]{opacity:1;border-bottom-color:var(--teal)}
+
+.split{display:grid;gap:36px;align-items:center;grid-template-columns:minmax(0,1fr)}
+@media(min-width:820px){.split{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px}}
+.art{width:100%;max-width:460px;height:auto;justify-self:center;color:var(--teal)}
+section{position:relative;padding:clamp(56px,9vw,100px) 0}
+section+section{border-top:1px solid var(--line)}
+h1{margin:0;font-family:"Oswald",Impact,Arial,sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(2.6rem,8vw,4.6rem);line-height:1.05;letter-spacing:.01em}
+h1 span{display:block;color:var(--teal)}
+h2{margin:0 0 20px;font-weight:700;font-size:clamp(1.8rem,4.5vw,2.6rem);line-height:1.15}
+h2 em{font-style:normal;color:var(--teal)}
+p{margin:0 0 1em;max-width:56ch;color:#d3d8df}
+.sub{margin-top:18px;color:var(--muted)}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:999px;background:var(--teal);color:#06242a;font:600 .82rem "Poppins",sans-serif;text-decoration:none;border:0;cursor:pointer}
+.btn:hover{filter:brightness(1.12)}
+.btn.o{background:var(--card);color:var(--ink)}
+.btn.o:hover{background:#343c49}
+.down{display:flex;justify-content:center;margin-top:48px}
+.down a{display:grid;place-items:center;width:46px;height:46px;border-radius:8px;background:var(--card);color:var(--ink)}
+.down a:hover{background:var(--teal);color:#06242a}
+
+#home .split,#about .split{grid-template-columns:minmax(0,1fr)}
+#home .split>div{max-width:720px}
+.doodle{position:absolute;inset:0;width:100%;height:100%;opacity:.16;color:var(--teal);pointer-events:none;-webkit-mask-image:linear-gradient(#000 60%,transparent);mask-image:linear-gradient(#000 60%,transparent)}
+section>.wrap,.above{position:relative}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 22px}
+.chip{padding:5px 14px;border:1.5px solid var(--teal);border-radius:999px;font-size:.84rem;color:var(--ink)}
+.sg h3{margin:22px 0 0;font-size:.95rem;font-weight:600;color:var(--muted)}
+.pills{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px}
+.pill{padding:6px 18px;border-radius:999px;border:0;background:var(--card);color:var(--ink);font:500 .8rem "Poppins",sans-serif;cursor:pointer}
+.pill[aria-pressed="true"]{background:var(--teal);color:#06242a}
+.cards{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr))}
+.card{display:flex;flex-direction:column;background:var(--card);border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+.card[hidden]{display:none}
+.thumb{display:grid;place-items:center;height:130px;background:linear-gradient(135deg,#1a2a33,#123c44);color:var(--teal)}
+.cb{padding:20px 22px 24px;display:flex;flex-direction:column;flex:1}
+.tag{align-self:flex-start;padding:2px 12px;border-radius:999px;background:rgba(20,180,192,.15);color:var(--teal);font-size:.74rem;font-weight:600}
+.card h3{margin:12px 0 6px;font-size:1.1rem;line-height:1.35}
+.card p{font-size:.92rem;margin-bottom:12px;color:var(--muted)}
+.meta{margin:auto 0 0;font-size:.82rem;color:var(--ink);border-top:1px solid var(--line);padding-top:10px}
+.meta b{color:var(--teal);font-weight:600}
+.rows{list-style:none;margin:0;padding:0}
+.rows li{display:grid;gap:2px 24px;padding:16px 0;border-bottom:1px solid var(--line)}
+.rows li:first-child{padding-top:0}
+.rows li:last-child{border-bottom:0}
+@media(min-width:640px){.rows li{grid-template-columns:150px minmax(0,1fr)}}
+.rows h3{margin:0;font-size:1rem;font-weight:600}
+.rows p{margin:0;color:var(--muted);font-size:.93rem}
+.when{color:var(--teal);font-size:.82rem;font-weight:600}
+
+.f{display:grid;gap:14px;grid-template-columns:minmax(0,1fr)}
+@media(min-width:560px){.f .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}}
+.two{display:grid;gap:14px}
+.f label{display:block;font-size:.78rem;font-weight:600;margin-bottom:6px}
+.f input,.f textarea{width:100%;padding:11px 14px;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:8px;font:400 .92rem "Poppins",sans-serif}
+.f textarea{min-height:130px;resize:vertical}
+.f ::placeholder{color:#7b8591}
+
+.status{display:inline-flex;align-items:center;gap:10px;margin:0 0 20px;padding:5px 16px;border:1.5px solid var(--teal);border-radius:999px;font-size:.8rem;font-weight:500;color:var(--ink)}
+.status i{width:9px;height:9px;border-radius:50%;background:var(--teal);box-shadow:0 0 10px var(--teal);animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(.5);opacity:.5}}
+.term{margin-top:30px;max-width:520px;background:var(--deep);border:1px solid var(--line);border-radius:10px;font-family:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;box-shadow:0 0 30px rgba(20,180,192,.12);overflow:hidden}
+.tbar{display:flex;align-items:center;gap:7px;padding:9px 14px;border-bottom:1px solid var(--line);font-size:.74rem;color:var(--muted)}
+.tbar i{width:9px;height:9px;border-radius:50%;background:var(--line)}
+.tbar i:first-child{background:var(--teal)}
+.tbar span{margin-left:8px}
+.tb{padding:14px 16px 16px}
+.tb p{margin:0;max-width:none;font-size:.84rem;line-height:1.75;color:var(--ink)}
+.tb b{color:var(--teal);font-weight:600;margin-right:8px}
+.tb .o{color:var(--muted);margin-bottom:6px}
+.cur::after{content:"";display:inline-block;width:8px;height:15px;vertical-align:-2px;background:var(--teal);animation:blink 1.1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+.ticker{overflow:hidden;background:var(--deep);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0}
+.trk{display:flex;width:max-content;animation:slide 38s linear infinite;font:600 .85rem "JetBrains Mono",monospace;color:var(--muted)}
+.trk span{white-space:nowrap;padding-right:28px}
+.trk span::before{content:"◆";color:var(--teal);margin-right:28px}
+@keyframes slide{to{transform:translateX(-50%)}}
+h2::before{content:">";color:var(--teal);font-family:"JetBrains Mono",monospace;font-weight:600;font-size:.75em;margin-right:10px}
+.card{position:relative}
+.card::before,.card::after{content:"";position:absolute;width:14px;height:14px;border:2px solid var(--teal);pointer-events:none;z-index:1}
+.card::before{top:8px;left:8px;border-right:0;border-bottom:0}
+.card::after{bottom:8px;right:8px;border-left:0;border-top:0}
+.sig{margin:0 auto 14px;font:400 .85rem "JetBrains Mono",monospace;color:var(--teal)}
+@media(prefers-reduced-motion:reduce){.status i,.cur::after,.trk{animation:none}}
+.btn[hidden]{display:none}
+footer{border-top:1px solid var(--line);padding:36px 0 44px;text-align:center;color:var(--muted);font-size:.85rem}
+footer nav{justify-content:center;margin-bottom:20px}
+.soc{display:flex;justify-content:center;gap:12px;margin-bottom:22px}
+.soc a{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--card);color:var(--ink);font-weight:600;font-size:.8rem;text-decoration:none}
+.soc a:hover{background:var(--teal);color:#06242a}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<symbol id="lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/><circle cx="12" cy="15.5" r="1"/></symbol>
+<symbol id="bug" viewBox="0 0 24 24"><path d="M9 9a3 3 0 016 0v6a3 3 0 01-6 0z"/><path d="M12 9v9M5 8l3 2M19 8l-3 2M4 14h3M17 14h3M5 20l3-2M19 20l-3-2M9.5 6L8 4M14.5 6L16 4"/></symbol>
+<symbol id="code" viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 5l-4 14"/></symbol>
+<symbol id="wifi" viewBox="0 0 24 24"><path d="M2 9a15 15 0 0120 0M5 12.5a10 10 0 0114 0M8.5 16a5 5 0 017 0"/><circle cx="12" cy="19.5" r="1"/></symbol>
+<symbol id="key" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M16 7l3 3M14 9l2 2"/></symbol>
+<symbol id="shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5L16 9.5"/></symbol>
+<symbol id="term" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 10l3 2-3 2M12 15h5"/></symbol>
+<pattern id="dd" width="170" height="170" patternUnits="userSpaceOnUse">
+  <use href="#lock" x="10" y="12" width="34" height="34" transform="rotate(-12 27 29)"/>
+  <use href="#bug" x="100" y="20" width="30" height="30" transform="rotate(14 115 35)"/>
+  <use href="#code" x="40" y="96" width="36" height="36" transform="rotate(8 58 114)"/>
+  <use href="#wifi" x="124" y="108" width="32" height="32"/>
+  <use href="#key" x="6" y="130" width="28" height="28" transform="rotate(-20 20 144)"/>
+  <use href="#shield" x="78" y="52" width="26" height="26"/>
+  <use href="#term" x="136" y="58" width="26" height="26" transform="rotate(8 149 71)"/>
+</pattern>
+</defs>
+</svg>
+
+<header class="wrap top">
+  <a class="logo" href="#home">Anandhu<span>Anil</span></a>
+  <nav aria-label="Main">
+    <a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#security">Security</a><a href="#journey">Journey</a><a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section id="home" style="padding-top:clamp(44px,8vw,84px)">
+    <svg class="doodle" aria-hidden="true"><rect width="100%" height="100%" fill="url(#dd)"/></svg>
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <p class="status"><i aria-hidden="true"></i>Open to security analyst and junior pentest roles</p>
+          <h1 aria-label="Cyber security trainee"><span style="color:var(--ink)" id="t1" aria-hidden="true">Cyber security</span><span aria-hidden="true">trainee</span></h1>
+          <p class="sub">Hi, I’m Anandhu Anil. A computer science graduate learning penetration testing and web security, and building small tools in Python.</p>
+          <div class="btns">
+            <a class="btn" href="#contact">Hire me</a>
+            <a class="btn o" href="https://github.com/anandhu2057sree" rel="noopener">View GitHub</a>
+            <button class="btn o cv" type="button" hidden>Download CV</button>
+          </div>
+          <div class="term" role="img" aria-label="Terminal showing: whoami anandhu-anil, role cyber security trainee, tools kali nmap burpsuite wireshark metasploit">
+            <div class="tbar" aria-hidden="true"><i></i><i></i><i></i><span>anandhu@portfolio:~</span></div>
+            <div class="tb" aria-hidden="true">
+              <p><b>$</b>whoami</p><p class="o">anandhu-anil</p>
+              <p><b>$</b>cat role.txt</p><p class="o">cyber security trainee | OCSP in progress</p>
+              <p><b>$</b>ls tools/</p><p class="o">kali  nmap  burpsuite  wireshark  metasploit</p>
+              <p><b>$</b><span class="cur"></span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="down"><a href="#about" aria-label="Scroll to About"><svg class="ic" width="22" height="22" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a></div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true"><div class="trk"><span>Penetration testing</span><span>Vulnerability assessment</span><span>OWASP Top 10</span><span>Network security</span><span>Kali Linux</span><span>Nmap</span><span>Burp Suite</span><span>Wireshark</span><span>Metasploit</span><span>Linux</span><span>Python</span><span>Penetration testing</span><span>Vulnerability assessment</span><span>OWASP Top 10</span><span>Network security</span><span>Kali Linux</span><span>Nmap</span><span>Burp Suite</span><span>Wireshark</span><span>Metasploit</span><span>Linux</span><span>Python</span></div></div>
+
+  <section id="about">
+    <svg class="doodle" aria-hidden="true"><rect width="100%" height="100%" fill="url(#dd)"/></svg>
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <h2>About <em>me</em></h2>
+          <p>I recently finished my B.Tech in Computer Science and Engineering and chose cyber security as my specialization. I like understanding how systems work so I can see where they can break, and how to fix them.</p>
+          <p>I’m completing the Offenso Certified Security Professional (OCSP) program, a five-month course by Offenso Hackers Academy. I’m looking for a security analyst or junior penetration testing role.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <svg class="doodle" aria-hidden="true"><rect width="100%" height="100%" fill="url(#dd)"/></svg>
+    <div class="wrap">
+      <h2>My <em>skills</em></h2>
+      <div class="sg">
+        <h3>Cyber security</h3>
+        <div class="chips"><span class="chip">Penetration testing</span><span class="chip">Vulnerability assessment</span><span class="chip">OWASP Top 10</span><span class="chip">Network security</span><span class="chip">Reconnaissance &amp; enumeration</span></div>
+        <h3>Tools</h3>
+        <div class="chips"><span class="chip">Kali Linux</span><span class="chip">Nmap</span><span class="chip">Burp Suite</span><span class="chip">Wireshark</span><span class="chip">Metasploit</span></div>
+        <h3>Foundations</h3>
+        <div class="chips"><span class="chip">Linux</span><span class="chip">Networking (TCP/IP)</span><span class="chip">Cryptography basics</span></div>
+        <h3>Programming</h3>
+        <div class="chips"><span class="chip">Python</span><span class="chip">Web development</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <svg class="doodle" aria-hidden="true"><rect width="100%" height="100%" fill="url(#dd)"/></svg>
+    <div class="wrap above">
+      <h2>My recent <em>works</em></h2>
+      <div class="pills" role="group" aria-label="Filter projects">
+        <button class="pill" type="button" data-f="all" aria-pressed="true">All</button>
+        <button class="pill" type="button" data-f="ml" aria-pressed="false">ML</button>
+        <button class="pill" type="button" data-f="web" aria-pressed="false">Web</button>
+        <button class="pill" type="button" data-f="sec" aria-pressed="false">Security</button>
+      </div>
+      <div class="cards">
+        <article class="card" data-c="ml"><div class="thumb"><svg class="ic" width="54" height="54" viewBox="0 0 24 24"><use href="#shield"/></svg></div><div class="cb"><span class="tag">ML · Nov 2025 – Mar 2026</span><h3>UASR: uncertainty-aware satellite image super resolution</h3><p>A super-resolution pipeline built on Bicubic Interpolation and ESRGAN, fine-tuned and evaluated with PSNR and SSIM. I also experimented with uncertainty heatmaps that mark low-confidence regions.</p><div class="meta"><b>Stack:</b> Python, ESRGAN</div></div></article>
+        <article class="card" data-c="web"><div class="thumb"><svg class="ic" width="54" height="54" viewBox="0 0 24 24"><use href="#code"/></svg></div><div class="cb"><span class="tag">Web · Jan – Mar 2025</span><h3>Philanthropy Insights Platform</h3><p>A Flask web app that turns philanthropy donation data from CSV files into filterable insights and charts.</p><div class="meta"><b>Stack:</b> Flask, Pandas, NumPy, Matplotlib</div></div></article>
+        <article class="card" data-c="sec"><div class="thumb"><svg class="ic" width="54" height="54" viewBox="0 0 24 24"><use href="#term"/></svg></div><div class="cb"><span class="tag">Security · Coming soon</span><h3>Security lab write-ups</h3><p>Reports from my penetration testing labs. Planned reports are listed in the Security section. Code lives on <a href="https://github.com/anandhu2057sree" rel="noopener">my GitHub</a>.</p><div class="meta"><b>Status:</b> Not published yet</div></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="security">
+    <svg class="doodle" aria-hidden="true"><rect width="100%" height="100%" fill="url(#dd)"/></svg>
+    <div class="wrap">
+      <h2>Security <em>work</em></h2>
+      <p>I’m writing these reports as I go through the OCSP program. Each one covers what I did, what I found, and what I’d fix. Nothing is published yet.</p>
+      <ul class="rows" style="margin-top:22px">
+        <li><span class="when">Planned</span><div><h3>Risk and compliance audit</h3><p>Audit a small business against NIST CSF, then list the gaps and fixes in priority order.</p></div></li>
+        <li><span class="when">Planned</span><div><h3>Network architecture</h3><p>Design a segmented network and show where each security control sits and why.</p></div></li>
+        <li><span class="when">Next up</span><div><h3>Linux hardening</h3><p>Lock down file and directory permissions using the principle of least privilege.</p></div></li>
+        <li><span class="when">Planned</span><div><h3>Vulnerability assessment</h3><p>Score risks by likelihood and severity, then propose a remediation plan.</p></div></li>
+        <li><span class="when">Planned</span><div><h3>Incident handler’s journal</h3><p>Document investigations with tools like Wireshark, mapped to the incident response lifecycle.</p></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="journey">
+    <svg class="doodle" aria-hidden="true"><rect width="100%" height="100%" fill="url(#dd)"/></svg>
+    <div class="wrap">
+      <h2>My <em>journey</em></h2>
+      <ul class="rows">
+        <li><span class="when">In progress</span><div><h3>Offenso Certified Security Professional (OCSP)</h3><p>Five-month program, Offenso Hackers Academy.</p></div></li>
+        <li><span class="when">2022 – 2026</span><div><h3>B.Tech, Computer Science and Engineering</h3><p>Baselios Mathews II College of Engineering, Sasthamcotta.</p></div></li>
+        <li><span class="when">Internship</span><div><h3>Web Development Intern</h3><p>JTHREAD IT Training Consultancy, 40 hours.</p></div></li>
+        <li><span class="when">2024</span><div><h3>Smart India Hackathon</h3></div></li>
+        <li><span class="when">Conference</span><div><h3>National Level Hackathon X</h3><p>National Cyber Security Research Council.</p></div></li>
+        <li><span class="when">Workshop</span><div><h3>Structural Engineering and ETABS</h3><p>Techmaghi and IIT Delhi.</p></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact">
+    <svg class="doodle" aria-hidden="true"><rect width="100%" height="100%" fill="url(#dd)"/></svg>
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <h2>Got a role in <em>mind?</em></h2>
+          <p>I’m open to security analyst and junior penetration testing roles. Write a few lines and I’ll reply by email.</p>
+          <p>Phone: <a href="tel:+919605148556">+91-9605148556</a><br>Email: <a href="mailto:anandhu2057@gmail.com">anandhu2057@gmail.com</a></p>
+          <div class="btns" style="margin:0 0 22px"><button class="btn o cv" type="button" hidden>Download CV</button></div>
+        </div>
+        <div class="f">
+          <div class="two">
+            <div><label for="n">Your name</label><input id="n" placeholder="Name" autocomplete="name"></div>
+            <div><label for="e">Your email</label><input id="e" type="email" placeholder="Email" autocomplete="email"></div>
+          </div>
+          <div><label for="m">Your message</label><textarea id="m" placeholder="Message"></textarea></div>
+          <div><a class="btn" id="send" href="mailto:anandhu2057@gmail.com">Send message</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav aria-label="Footer"><a href="#home">Home</a><a href="#about">About me</a><a href="#contact">Contact</a></nav>
+    <div class="soc">
+      <a href="https://github.com/anandhu2057sree" rel="noopener" aria-label="GitHub">GH</a>
+      <a href="https://linkedin.com/in/anandhu-anil-8a6283327" rel="noopener" aria-label="LinkedIn">in</a>
+      <a href="mailto:anandhu2057@gmail.com" aria-label="Email">@</a>
+    </div>
+    <p class="sig">$ echo "Thanks for visiting. Stay secure."</p>
+    <p style="margin:0 auto 6px;text-align:center"><a href="tel:+919605148556">+91-9605148556</a></p>
+    © 2026 Anandhu Anil
+  </div>
+</footer>
+
+<script>
+(function(){
+  var t1=document.getElementById("t1"),TXT="Cyber security";
+  function enc(s,n){return s.replace(/[a-z]/gi,function(c){var b=c<="Z"?65:97;return String.fromCharCode((c.charCodeAt(0)-b+n)%26+b)})}
+  if(!(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)){
+    var n=11;t1.textContent=enc(TXT,n);
+    var id=setInterval(function(){n--;t1.textContent=enc(TXT,n);if(n<=0)clearInterval(id)},130);
+  }
+  var CV="JVBERi0xLjQKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgKG9wZW5zb3VyY2UpCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUiAvRjMgNCAwIFIKPj4KZW5kb2JqCjIgMCBvYmoKPDwKL0Jhc2VGb250IC9IZWx2ZXRpY2EgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YxIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKMyAwIG9iago8PAovQmFzZUZvbnQgL0hlbHZldGljYS1Cb2xkIC9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nIC9OYW1lIC9GMiAvU3VidHlwZSAvVHlwZTEgL1R5cGUgL0ZvbnQKPj4KZW5kb2JqCjQgMCBvYmoKPDwKL0Jhc2VGb250IC9IZWx2ZXRpY2EtT2JsaXF1ZSAvRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvTmFtZSAvRjMgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iago1IDAgb2JqCjw8Ci9Db250ZW50cyA5IDAgUiAvTWVkaWFCb3ggWyAwIDAgNTk1LjI3NTYgODQxLjg4OTggXSAvUGFyZW50IDggMCBSIC9SZXNvdXJjZXMgPDwKL0ZvbnQgMSAwIFIgL1Byb2NTZXQgWyAvUERGIC9UZXh0IC9JbWFnZUIgL0ltYWdlQyAvSW1hZ2VJIF0KPj4gL1JvdGF0ZSAwIC9UcmFucyA8PAoKPj4gCiAgL1R5cGUgL1BhZ2UKPj4KZW5kb2JqCjYgMCBvYmoKPDwKL1BhZ2VNb2RlIC9Vc2VOb25lIC9QYWdlcyA4IDAgUiAvVHlwZSAvQ2F0YWxvZwo+PgplbmRvYmoKNyAwIG9iago8PAovQXV0aG9yIChBbmFuZGh1IEFuaWwpIC9DcmVhdGlvbkRhdGUgKEQ6MjAyNjEwMjIxMDE4MTUrMDAnMDAnKSAvQ3JlYXRvciAoXCh1bnNwZWNpZmllZFwpKSAvS2V5d29yZHMgKCkgL01vZERhdGUgKEQ6MjAyNjEwMjIxMDE4MTUrMDAnMDAnKSAvUHJvZHVjZXIgKFJlcG9ydExhYiBQREYgTGlicmFyeSAtIFwob3BlbnNvdXJjZVwpKSAKICAvU3ViamVjdCAoXCh1bnNwZWNpZmllZFwpKSAvVGl0bGUgKEFuYW5kaHUgQW5pbCAtIFJlc3VtZSkgL1RyYXBwZWQgL0ZhbHNlCj4+CmVuZG9iago4IDAgb2JqCjw8Ci9Db3VudCAxIC9LaWRzIFsgNSAwIFIgXSAvVHlwZSAvUGFnZXMKPj4KZW5kb2JqCjkgMCBvYmoKPDwKL0ZpbHRlciBbIC9BU0NJSTg1RGVjb2RlIC9GbGF0ZURlY29kZSBdIC9MZW5ndGggMjA5NQo+PgpzdHJlYW0KR2F1YFQ+P0JRPSY6V2VEYmdXLyoybCsvOGZyIzluPVBWPmRORDcicV1FaCNhW0UsWFRQK2guKU81SChqSjExZjdnSlNNJEUrM048aG9yIi9mak5kIj8yW0pRSj4zcmYrNTowYiYyMWxuSDYxIyYwU3A+PjRnNmpxSUNuXD1UJ0pfWER0UCpubGYxMFZELG1lJGwyVy1fW21DMVExREsmJ0BpOWhtQClVYTdZU1hnUE83Mio0RkBPYSxvWmJLPE4yR1J1LnU9NFZwZkJHZl5CUEdKJFwqPUtpSGwiW21bYGE2Wlwrb2BxcCRtb2pWVip0J3U2TT9WcnFsRmpVKyZgJUlNJkFALzc1aW5HTj9bO1BpdV1yV2JbayZXPSM8L0FNNSouTzBvSFAhIilxTURLNkAoSkwzX1lGMFhLZmxdZ2dqK2ReTDMhN2NUcVI3bUFDXEoqLFt1JUQnPlA5YlQ7L3JOJnE9cmhWWFQkIl5AIW08OkkrdGc6PWI2JWNrJURgbmwiJGo0QHUhKi5uKlxPJ2d1K1gxSFZeOjZHcCJSSykwZU5IazZKZzc1QilHUGIuJC9ccjglOlVLOlpHRjVhUm0vS10scmNOZDxFUztBZVMiOy8uUig4Zi85TDc2ZEloYEpPc28sbmhlMjhbOWIkVlAiOWIwWilMVW8uOlc7WD1uUl9VLkhmJT8/YkBfa25GQ1NvMjcscUIiOVVSQW8hc3MnKzNSTFgpZ1ddQDZxKEdjXG1faGgxS1xyLHNMZlVCTSJURExiR14icHBoJDVXUkJwRVVEa0wwNEJDWDwxbSZbZTlTYyk6SkxHcCZDMUdvOWYxUGUvcC8zU1g+NE1LZyZcU1FKOlNUZ1xnOmNEXlIxXTNoNltoQ0JrOGtkX2xWQDErSUB0WGlwWmkzQXFEWWs6R0MrKjApPiJrP2gvKzM3VWtncEhwcTtqPmkqSFkjJUNhP2I+SidCdWpGVSFFYWdnbHM4MUNSJ2lDNFZJLCRAQihfLSdaU2ZoLiFXY0lwNjgxa1JiQCZCRGJqbU9jMk48OFpkLWw/NmtYanR0MjYrQT00bikjYXA2XT9Gcmo2am1ZPEs3MWFdczFeL0EtVlxqbzI5cDlHRypxaEA/OkhuY1VBV01wQmghdDQqMG1nW1crOz9ramQ7aG4tMVwmRG4jN1k2aSZUNzxjb1UkQVRLVSF1KW5WYlw7Ol9tLVUjO1hZTyhZWjYpMSFAREVhQGxLIicoSmRpSjhuSlcicVg4bFU/P0xVc1YkQiZCKGE7OzhwX0lwTV1KT2pPOClHQElRJCdjJ0s/Qy8mbGQyJ1hMRzVNVHQ4TWllOGJKRUY5U1AkVz8zNUwkbylzakhAdCNVNz5TYz8hPG9nMnBtKF1kJTdtMSstNUZOQ3RlI1JZO15eR1xGJzBHTEFecWZmVFZtbGlgIi1DIm4uOkNsJkM5SzcvTSUjPHR0NDoxVCxGPywiZWFZOTYuL1Y2YShvRFBXPiZpXmtJRVstVSVcY2JpSlIvKHFVLmhHQWdiUk9xX1VgTlIiQ2YmTlMwPUNKdGctPE48RSZiXDhSI0lDJ2tmayZHVmNmJG5Ecm82aCVLZW9QbFApRHBPVF1EdW9aPlouODkoZlJFZVAwcTZTTmxHa0pgKFoxbVQ1XiF1YHQ9J2wjQl06SzxsPjs5WSxHO1I5I3VUckNcUnUxQD9xOVAudVFIJWldIUBvbWQ5XkVlOE9sTVZrKWBUUlJbL0E1MmJnPSo0S24jMltHbC5gdCpDLUdIWy8sYGlxMGopKDAqLVIyOVdFS2pxKV4vIXQ9TlFhcUxyVFkyWWc2aWsmXyNPZE1ONS4uVkdocXRRcjJwdWJLMXBOVEFfRl9rWmtuOSI6Oy0uLk8mKDJqUlomUFxDTCFMSGpWQiRGQ2ZrTFBSLGhVTzlscjskUSM/V2BWPEshSGNvQHQsXyllSzhOOzYxVCcoOEB0Yz5VQyswWUYtazdrPnAyOTpiI0MwYzB1MD49QihSPSUhL1hVTFJBN2Y3KlhDcilqJj5kTzEmS1FxJ19dYCdLWDkqL2lFP05WWGhMPD80TjBfVkFvc0ckPVNcNipZdSpkIzVwUF4zQTJuXEkqS2NJSWY1QGwvYjUtPW4hU1YlLFlmZmtscWxPPi5wLj9PPmdTSWNOYF0xY1ozNShsSEV0Vjs6ISJtTjdJcmA2O2FYbkFkXTA7KnErWGQjMVI7ZkY8R1BDc0dcLm03LEtyTVwkPW1vJWVSJnUtVkAzakpnJytkMDYyP2hEZDwmXEhNNSdLJkFDcyJSSC9BW2pIUz1VXjRDRkBLa1ojIiRLW2libENiUnVKNnQ8OXBOOWFATVtHNkdpYidEWDYwJWx1IUNGITJSSGVKWzdZUXM1OUJsMyRVZ1hOVnFqJERrZ2cmLCx0RV0vaExLRF0uNUQzTlouXmpGV0VRZzUpIW5wZDVFVnEiZWJXb19iJj9yXlclV141NG49RztWWVEsWlQ6M2sqPCNPJC0xPFUtciYyMjA7JUIvSV5saTAqM3VRYlJjPz8kVXUkXzAwMnNURXEuOyo7NlBdQU5xR2JdSiRlZFIrNkpaR2ZMYCkiMD5QZWNabilrcjkoWVBuR1ppIy5HXVhYQlgnUGpbQGBqZWhAMk5LdWJ1PDBwUzdWWiduUis+OS1oRCVvJyRkKDRmLDUnaUZbWUYlcDVCOjNBRkhfISc2U20+NCJDLTpuXT8vNkgzN2pMR1dYWyEkYCRDdDBsKjErU25DP1hRVnFaPUswLFI8XzEyMWowSjx+PmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDEwCjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDA2MSAwMDAwMCBuIAowMDAwMDAwMTEyIDAwMDAwIG4gCjAwMDAwMDAyMTkgMDAwMDAgbiAKMDAwMDAwMDMzMSAwMDAwMCBuIAowMDAwMDAwNDQ2IDAwMDAwIG4gCjAwMDAwMDA2NDkgMDAwMDAgbiAKMDAwMDAwMDcxNyAwMDAwMCBuIAowMDAwMDAxMDA0IDAwMDAwIG4gCjAwMDAwMDEwNjMgMDAwMDAgbiAKdHJhaWxlcgo8PAovSUQgCls8NTA0OTA5YTZkMGExMDZmYjJmZTUyYzczOGE2ZmU1NTE+PDUwNDkwOWE2ZDBhMTA2ZmIyZmU1MmM3MzhhNmZlNTUxPl0KJSBSZXBvcnRMYWIgZ2VuZXJhdGVkIFBERiBkb2N1bWVudCAtLSBkaWdlc3QgKG9wZW5zb3VyY2UpCgovSW5mbyA3IDAgUgovUm9vdCA2IDAgUgovU2l6ZSAxMAo+PgpzdGFydHhyZWYKMzI0OQolJUVPRgo=";
+  var cvBtns=[].slice.call(document.querySelectorAll(".cv"));
+  if(window.claude&&claude.use){claude.use("downloads").then(function(d){
+    if(!d)return;
+    cvBtns.forEach(function(b){b.hidden=false;b.addEventListener("click",function(){
+      var bin=atob(CV),u=new Uint8Array(bin.length);for(var i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);
+      d.save({filename:"Anandhu_Anil_Resume.pdf",data:u}).catch(function(){});
+    })});
+  }).catch(function(){})}
+  var pills=[].slice.call(document.querySelectorAll(".pill")),cards=[].slice.call(document.querySelectorAll(".card"));
+  pills.forEach(function(p){p.addEventListener("click",function(){
+    pills.forEach(function(x){x.setAttribute("aria-pressed",x===p?"true":"false")});
+    cards.forEach(function(c){c.hidden=p.dataset.f!=="all"&&c.dataset.c!==p.dataset.f});
+  })});
+  var send=document.getElementById("send");
+  function mail(){
+    var n=document.getElementById("n").value,e=document.getElementById("e").value,m=document.getElementById("m").value;
+    send.href="mailto:anandhu2057@gmail.com?subject="+encodeURIComponent("Portfolio message from "+(n||"a visitor"))+"&body="+encodeURIComponent(m+"\n\n"+n+"\n"+e);
+  }
+  ["n","e","m"].forEach(function(i){document.getElementById(i).addEventListener("input",mail)});
+  var secs=[].slice.call(document.querySelectorAll("main > section")),nl=[].slice.call(document.querySelectorAll("header nav a"));
+  if("IntersectionObserver" in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting)nl.forEach(function(a){if(a.getAttribute("href")==="#"+e.target.id)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")})
+    })},{rootMargin:"-40% 0px -55% 0px"});
+    secs.forEach(function(s){io.observe(s)});
+  }
+})();
+</script>
+</body>
+</html>
