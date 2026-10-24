@@ -4,6 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Anandhu Anil – Cyber Security Portfolio</title>
+<meta name="description" content="Anandhu Anil: B.Tech computer science graduate and cyber security trainee. Projects, skills, and contact details.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Anandhu Anil – Cyber Security Portfolio">
+<meta property="og:description" content="Cyber security trainee and computer science graduate. Projects, skills, and contact details.">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#080d18">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Press+Start+2P&display=swap">
 <style>
 :root{--bg:#080d18;--card:#0d1423;--deep:#060a12;--teal:#8b5cf6;--ink:#e4e9f5;--muted:#9aa9bf;--line:#26334b;
@@ -299,6 +305,8 @@ body::after{background:repeating-linear-gradient(to bottom,transparent 0px,trans
 </style>
 </head>
 <body>
+<script>try{if(sessionStorage.getItem("booted"))document.documentElement.classList.add("nb");if(localStorage.getItem("mode")==="light")document.documentElement.classList.add("light")}catch(e){}</script>
+<div id="boot" aria-hidden="true"><pre id="bootTxt"></pre></div>
 <div class="prog" id="prog" aria-hidden="true"></div>
 <div id="glow" aria-hidden="true"></div>
 <div class="cyber-hud" aria-hidden="true">
@@ -342,7 +350,8 @@ body::after{background:repeating-linear-gradient(to bottom,transparent 0px,trans
 <header class="wrap top">
   <a class="logo" href="#home">Anandhu<span>Anil</span></a>
   <nav aria-label="Main">
-    <a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#focus">Focus</a><a href="#environment">Labs</a><a href="#security">Security</a><a href="#journey">Journey</a><a href="#contact">Contact</a>
+    <a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#focus">Focus</a><a href="#environment">Labs</a><a href="#security">Security</a><a href="#journey">Journey</a><a href="#terminal">Terminal</a><a href="#contact">Contact</a>
+    <button id="mode" type="button" aria-label="Switch to light mode">Light</button>
   </nav>
 </header>
 
@@ -544,6 +553,20 @@ body::after{background:repeating-linear-gradient(to bottom,transparent 0px,trans
     </div>
   </section>
 
+  <section id="terminal">
+    <svg class="doodle" aria-hidden="true"><rect width="100%" height="100%" fill="url(#dd)"/></svg>
+    <div class="wrap">
+      <h2>Try my <em>terminal</em></h2>
+      <p>Type a command, or tap one below. Start with <b>help</b>.</p>
+      <div class="sh">
+        <div class="sh-bar" aria-hidden="true"><i></i><i></i><i></i><span>anandhu@portfolio:~</span></div>
+        <div class="sh-out" id="shOut" role="log" aria-live="polite"></div>
+        <div class="sh-in"><label for="shIn" class="sh-p">$</label><input id="shIn" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="type a command"></div>
+      </div>
+      <div class="sh-chips" id="shChips"></div>
+    </div>
+  </section>
+
   <section id="contact">
     <svg class="doodle" aria-hidden="true"><rect width="100%" height="100%" fill="url(#dd)"/></svg>
     <div class="wrap">
@@ -660,7 +683,7 @@ body::after{background:repeating-linear-gradient(to bottom,transparent 0px,trans
       for(var i=parts.length-1;i>=0;i--){
         var q=parts[i];q.x+=q.vx;q.y+=q.vy;q.vx*=.98;q.l-=q.d;
         if(q.l<=0){parts.splice(i,1);continue}
-        cx.globalAlpha=q.l;cx.fillStyle="#8b5cf6";cx.font="600 "+q.z+"px JetBrains Mono,monospace";cx.fillText(q.c,q.x,q.y);
+        cx.globalAlpha=q.l;cx.fillStyle=root.classList.contains("light")?"#ba9eff":"#8b5cf6";cx.font="600 "+q.z+"px JetBrains Mono,monospace";cx.fillText(q.c,q.x,q.y);
       }
       cx.globalAlpha=1;
       raf=parts.length?requestAnimationFrame(tick):0;
@@ -694,15 +717,16 @@ body::after{background:repeating-linear-gradient(to bottom,transparent 0px,trans
     };
     var bdraw=function(step){
       bx.clearRect(0,0,bw,bh);
-      bx.lineWidth=1;
+      var L=root.classList.contains("light");
+      bx.lineWidth=L?1.4:1;
       for(var a=0;a<nodes.length;a++){
         var p=nodes[a];
         if(step){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>bw)p.vx*=-1;if(p.y<0||p.y>bh)p.vy*=-1}
         for(var b=a+1;b<nodes.length;b++){
           var q=nodes[b],dx=p.x-q.x,dy=p.y-q.y,d=Math.sqrt(dx*dx+dy*dy);
-          if(d<150){bx.globalAlpha=.2*(1-d/150);bx.strokeStyle="#6078ff";bx.beginPath();bx.moveTo(p.x,p.y);bx.lineTo(q.x,q.y);bx.stroke()}
+          if(d<150){bx.globalAlpha=(L?.55:.2)*(1-d/150);bx.strokeStyle=L?"#a080ff":"#6078ff";bx.beginPath();bx.moveTo(p.x,p.y);bx.lineTo(q.x,q.y);bx.stroke()}
         }
-        bx.globalAlpha=.55;bx.fillStyle="#8b5cf6";bx.beginPath();bx.arc(p.x,p.y,2,0,6.283);bx.fill();
+        bx.globalAlpha=L?.95:.55;bx.fillStyle=L?"#ba9eff":"#8b5cf6";bx.beginPath();bx.arc(p.x,p.y,L?2.6:2,0,6.283);bx.fill();
       }
       bx.globalAlpha=1;
     };
@@ -729,6 +753,83 @@ body::after{background:repeating-linear-gradient(to bottom,transparent 0px,trans
     })},{rootMargin:"-40% 0px -55% 0px"});
     secs.forEach(function(s){io.observe(s)});
   }
+
+  /* boot screen */
+  var root=document.documentElement,boot=document.getElementById("boot");
+  if(boot){
+    if(rm||root.classList.contains("nb")){boot.parentNode.removeChild(boot)}
+    else{
+      var done=false,bt=document.getElementById("bootTxt"),bi=0;
+      var BL=["anandhu@portfolio:~$ boot","[ OK ] loading skills","[ OK ] mounting projects","[ OK ] starting network map","[ OK ] secure connection","access granted_"];
+      var finish=function(){
+        if(done)return;done=true;boot.classList.add("out");
+        setTimeout(function(){if(boot.parentNode)boot.parentNode.removeChild(boot)},500);
+        try{sessionStorage.setItem("booted","1")}catch(e){}
+      };
+      (function step(){
+        if(done)return;
+        if(bi<BL.length){bt.textContent+=BL[bi++]+"\n";setTimeout(step,260)}else setTimeout(finish,500);
+      })();
+      boot.addEventListener("click",finish);
+      addEventListener("keydown",finish,{once:true});
+    }
+  }
+  /* light / dark mode */
+  var modeBtn=document.getElementById("mode");
+  function labelMode(){var l=root.classList.contains("light");modeBtn.textContent=l?"Dark":"Light";modeBtn.setAttribute("aria-label",l?"Switch to dark mode":"Switch to light mode")}
+  function setMode(l){root.classList.toggle("light",l);labelMode();try{localStorage.setItem("mode",l?"light":"dark")}catch(e){}}
+  labelMode();
+  modeBtn.addEventListener("click",function(){setMode(!root.classList.contains("light"))});
+  /* interactive terminal */
+  var shOut=document.getElementById("shOut"),shIn=document.getElementById("shIn"),shChips=document.getElementById("shChips");
+  var CMDS={
+    help:"Commands: help, whoami, skills, tools, projects, education, certs, contact, github, linkedin, cv, ls, theme, clear",
+    whoami:"anandhu-anil\nCyber security trainee. B.Tech computer science graduate, looking for a security analyst or junior penetration testing role.",
+    skills:"Cyber security: penetration testing, vulnerability assessment, OWASP Top 10, network security, recon and enumeration\nFoundations: Linux, networking (TCP/IP), cryptography basics\nProgramming: Python, web development",
+    tools:"kali  nmap  burpsuite  wireshark  metasploit",
+    projects:"1. UASR: uncertainty-aware satellite image super resolution (Python, ESRGAN)\n2. Philanthropy Insights Platform (Flask, Pandas, NumPy, Matplotlib)\n3. Security lab write-ups: coming soon",
+    education:"B.Tech, Computer Science and Engineering, 2022-2026\nBaselios Mathews II College of Engineering, Sasthamcotta",
+    certs:"Offenso Certified Security Professional (OCSP)\nOffenso Hackers Academy, 5-month program, in progress",
+    contact:"email: anandhu2057@gmail.com\nphone: +91-9605148556",
+    github:"https://github.com/anandhu2057sree",
+    linkedin:"https://linkedin.com/in/anandhu-anil-8a6283327",
+    ls:"about  skills  projects  security  journey  contact"
+  };
+  var URLRE=/(https?:\/\/[^\s]+|[\w.+-]+@[\w-]+\.[\w.]+)/;
+  function line(text,cls){
+    var d=document.createElement("div");if(cls)d.className=cls;
+    text.split(URLRE).forEach(function(part,i){
+      if(i%2===1){
+        var a=document.createElement("a");a.textContent=part;
+        if(part.indexOf("http")===0){a.href=part;a.target="_blank";a.rel="noopener noreferrer"}else{a.href="mailto:"+part}
+        d.appendChild(a);
+      }else d.appendChild(document.createTextNode(part));
+    });
+    shOut.appendChild(d);shOut.scrollTop=shOut.scrollHeight;
+  }
+  var hist=[],hp=0;
+  function run(raw){
+    var c=raw.trim();line("$ "+c,"c");
+    if(!c)return;
+    var k=c.toLowerCase();
+    if(k==="clear"){shOut.textContent="";return}
+    if(k==="theme"){setMode(!root.classList.contains("light"));line("theme switched");return}
+    if(k==="cv"){var a=document.querySelector(".cv");if(a){line("starting download...");a.click()}return}
+    if(/^sudo\b/.test(k)){line("permission denied: nice try.");return}
+    if(/^rm\b/.test(k)){line("nope. this portfolio is read-only.");return}
+    if(Object.prototype.hasOwnProperty.call(CMDS,k)){line(CMDS[k]);return}
+    line("command not found: "+c+". Type help.");
+  }
+  line("Welcome. Type help, or tap a command below.");
+  ["help","whoami","skills","projects","certs","contact","clear"].forEach(function(n){
+    var b=document.createElement("button");b.type="button";b.textContent=n;
+    b.addEventListener("click",function(){run(n)});shChips.appendChild(b);
+  });
+  shIn.addEventListener("keydown",function(e){
+    if(e.key==="Enter"){var v=shIn.value;if(v.trim()){hist.push(v);hp=hist.length}run(v);shIn.value=""}
+    else if(e.key==="ArrowUp"&&hist.length){e.preventDefault();hp=Math.max(0,hp-1);shIn.value=hist[hp]}
+    else if(e.key==="ArrowDown"&&hist.length){e.preventDefault();hp=Math.min(hist.length,hp+1);shIn.value=hist[hp]||""}
+  });
 })();
 </script>
 </body>
@@ -760,4 +861,49 @@ h2::before{font-family:"Press Start 2P",monospace;font-size:.8em}
 .avatar::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:repeating-linear-gradient(to bottom,transparent 0 3px,rgba(139,92,246,.14) 3px 4px),linear-gradient(to top,rgba(8,13,24,.55),transparent 40%)}
 #glow{display:none!important}
 @media(max-width:520px){h2{font-size:.9rem}}
+
+/* extras: boot screen, terminal, light mode */
+#boot{position:fixed;inset:0;z-index:300;background:#060a12;display:flex;align-items:center;justify-content:center;padding:24px;animation:bootgone .01s linear 6s forwards}
+#boot pre{margin:0;font:500 clamp(.8rem,3.4vw,1rem)/1.9 "JetBrains Mono",monospace;color:#c4b5fd;text-shadow:0 0 12px rgba(139,92,246,.6)}
+#boot.out{opacity:0;transition:opacity .45s;pointer-events:none}
+@keyframes bootgone{to{opacity:0;visibility:hidden;pointer-events:none}}
+.nb #boot{display:none}
+#mode{font:600 .74rem "JetBrains Mono",monospace;background:none;color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:4px 12px;cursor:pointer}
+#mode:hover{border-color:var(--teal)}
+.sh{max-width:780px;margin-top:22px;background:var(--deep);border:1px solid var(--line);border-radius:10px;overflow:hidden;font-family:"JetBrains Mono",ui-monospace,monospace;box-shadow:0 0 30px rgba(139,92,246,.15)}
+.sh-bar{display:flex;align-items:center;gap:7px;padding:9px 14px;border-bottom:1px solid var(--line);font-size:.74rem;color:var(--muted)}
+.sh-bar i{width:9px;height:9px;border-radius:50%;background:var(--line)}
+.sh-bar i:first-child{background:var(--teal)}
+.sh-bar span{margin-left:8px}
+.sh-out{height:min(46vh,320px);overflow:auto;padding:14px 16px;font-size:.84rem;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}
+.sh-out .c{color:#c4b5fd}
+.sh-out a{color:var(--teal)}
+.sh-in{display:flex;align-items:center;gap:10px;padding:10px 16px;border-top:1px solid var(--line)}
+.sh-p{color:var(--teal);font-weight:600}
+.sh-in input{flex:1;min-width:0;background:transparent;border:0;color:var(--ink);font:400 16px "JetBrains Mono",monospace;padding:4px 0}
+.sh-in input:focus-visible{outline:2px solid var(--teal);outline-offset:4px}
+.sh-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;max-width:780px}
+.sh-chips button{font:500 .78rem "JetBrains Mono",monospace;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:6px 14px;cursor:pointer}
+.sh-chips button:hover{border-color:var(--teal);color:var(--teal)}
+html.light{filter:invert(1) hue-rotate(180deg)}
+html.light .avatar,html.light #boot{filter:invert(1) hue-rotate(180deg)}
+@media(prefers-reduced-motion:reduce){#boot{display:none}}
+
+/* light theme background (colors are pre-inverted because light mode inverts the page) */
+html.light body{
+  background-color:#1e1837;
+  background-image:
+    radial-gradient(rgba(145,114,251,.34) 1.2px,transparent 1.5px),
+    radial-gradient(circle at 12% 10%,#5d46a3 0,rgba(93,70,163,0) 46%),
+    radial-gradient(circle at 88% 38%,#204380 0,rgba(32,67,128,0) 44%),
+    radial-gradient(circle at 18% 88%,#542c73 0,rgba(84,44,115,0) 46%),
+    linear-gradient(160deg,#1e1837 0%,#0d1930 52%,#1d122d 100%);
+  background-size:26px 26px,auto,auto,auto,auto;
+  background-attachment:fixed;
+}
+html.light .doodle{opacity:.28}
+html.light{--teal:#ba9eff;--line:#55628f}
+html.light .cyber-hud{opacity:.85}
+html.light .hud{border-color:rgba(186,158,255,.85)}
+html.light .doodle{opacity:.4}
 </style>
